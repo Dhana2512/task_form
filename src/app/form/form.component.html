@@ -1,0 +1,205 @@
+<div class="container">
+    <div class="row d-flex align-items-center justify-content-center pt-4">
+        <div class="col-md-8 pt-4">
+            <div class="box-shadow border-box shadow-sm pt-3">
+                <h3 class="text-center font-weight-bolder"> Student Registration Form</h3>
+                <form class="p-5" #registrationForm="ngForm" (ngSubmit)="handleForm()">
+                    <label>Name of the Applicant</label>
+                    <div class="row">
+                        <div class="col">
+                            <input type="text" [(ngModel)]="data.Fname" name="Fname" class="form-control"
+                                placeholder="First name" required>
+                        </div>
+                        <div class="col">
+                            <input type="text" [(ngModel)]="data.Lname" name="Lname" class="form-control"
+                                placeholder="Last name" required>
+                        </div>
+                    </div>
+                    <div class="pt-3">
+                        <label>Date of Birth</label>
+                        <input type="date" [(ngModel)]="data.DOB" name="DOB" placeholder="MM/DD/YYYY"
+                            class="form-control" required />
+                    </div>
+                    <div class="pt-3">
+                        <label>Gender</label>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" [(ngModel)]="data.Gender" name="Gender1"
+                                id="exampleRadios1" value="Male" checked required>
+                            <label class="form-check-label" for="exampleRadios1">
+                                Male
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" [(ngModel)]="data.Gender" name="Gender2"
+                                id="exampleRadios2" value="Female" required>
+                            <label class="form-check-label" for="exampleRadios2">
+                                Female
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" [(ngModel)]="data.Gender" name="Gender3"
+                                id="exampleRadios3" value="Other" required>
+                            <label class="form-check-label" for="exampleRadios3">
+                                Other
+                            </label>
+                        </div>
+                    </div>
+                    <div class="pt-3">
+                        <label>Details of Siblings</label>
+                        <textarea [(ngModel)]="data.DetailsOfSiblings" name="DOS" type="text" class="form-control"
+                            required></textarea>
+                    </div>
+                    <h1 class="pt-3" style="font-size: 20px;">Parent's Information</h1>
+                    <div class="pt-3">
+                        <label>Father's Name</label>
+                        <div class="row">
+                            <div class="col">
+                                <input [(ngModel)]="data.Fname1" name="Fname1" type="text" class="form-control"
+                                    placeholder="First name" required>
+                            </div>
+                            <div class="col">
+                                <input [(ngModel)]="data.Lname1" name="Lname1" type="text" class="form-control"
+                                    placeholder="Last name" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pt-3">
+                        <label>Father's Qualification</label>
+                        <input [(ngModel)]="data.FathersQualification" name="FathersQualification" type="text"
+                            class="form-control" required />
+                    </div>
+                    <div class="pt-3">
+                        <div class="row">
+                            <div class="col">
+                                <label>Phone</label>
+                                <input [(ngModel)]="data.PhoneNumber" name="PhoneNumber" type="number"
+                                    class="form-control" placeholder="### ### ####">
+                            </div>
+                            <div class="col">
+                                <label>Email</label>
+                                <input [(ngModel)]="data.Email" #email="ngModel" name="Email" type="text"
+                                    class="form-control" required>
+                                <span *ngIf="email.touched && email.invalid" style="color:red">Please fill your
+                                    Email</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pt-3">
+                        <label>Father's Occupation</label>
+                        <input [(ngModel)]="data.FathersOccupation" name="FathersOccupation" type="text"
+                            class="form-control" required />
+                    </div>
+                    <div class="pt-3">
+                        <label>Mother's Name</label>
+                        <div class="row">
+                            <div class="col">
+                                <input [(ngModel)]="data.Fname2" name="Fname2" type="text" class="form-control"
+                                    placeholder="First name" required>
+                            </div>
+                            <div class="col">
+                                <input [(ngModel)]="data.Lname2" name="Lname2" type="text" class="form-control"
+                                    placeholder="Last name" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pt-3">
+                        <label>Mother's Qualification</label>
+                        <input [(ngModel)]="data.MothersQualification" name="MothersQualification" type="text"
+                            class="form-control" required />
+                    </div>
+                    <div class="pt-3">
+                        <div class="row">
+                            <div class="col">
+                                <label>Phone</label>
+                                <input [(ngModel)]="data.PhoneNumber1" name="PhoneNumber1" type="number"
+                                    class="form-control" placeholder="### ### ####" required>
+                            </div>
+                            <div class="col">
+                                <label>Email</label>
+                                <input [(ngModel)]="data.Email1" #email1="ngModel" name="Email1" type="text"
+                                    class="form-control" required>
+                                <span *ngIf="email1.touched && email1.invalid" style="color:red">Please fill your
+                                    Email</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pt-3">
+                        <label>Mother's Occupation</label>
+                        <input [(ngModel)]="data.MothersOccupation" name="MothersOccupation" type="text"
+                            class="form-control" required />
+                    </div>
+                    <div class="pt-3">
+                        <label>Address</label>
+                        <input [(ngModel)]="data.Address" name="Address" type="text" class="form-control"
+                            placeholder="Street Address" required />
+                        <div class="pt-2">
+                            <input [(ngModel)]="data.AddressLine2" name="AddressLine2" type="text" class="form-control"
+                                placeholder="Street Address Line 2" required />
+                        </div>
+                    </div>
+                    <div class="row pt-2">
+                        <div class="col">
+                            <input [(ngModel)]="data.City" name="City" type="text" class="form-control"
+                                placeholder="City" required>
+                        </div>
+                        <div class="col">
+                            <input [(ngModel)]="data.Region" name="Region" type="text" class="form-control"
+                                placeholder="Region" required>
+                        </div>
+                    </div>
+                    <div class="row pt-2">
+                        <div class="col">
+                            <input [(ngModel)]="data.PostalZipCode" name="PostalZipCode" type="number"
+                                class="form-control" placeholder="Postal / Zip Code" required>
+                        </div>
+                        <div class="col">
+                            <select selected [(ngModel)]="data.Country" name="Country"
+                                class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref" required>
+                                <option value="India">India</option>
+                                <option value="China">China</option>
+                                <option value="Canada">Canada</option>
+                                <option value="Iran">Iran</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="pt-3">
+                        <label>Payment Details</label>
+                        <div class="form-check">
+                            <input [(ngModel)]="data.PaymentDetails" name="PaymentDetails1" class="form-check-input"
+                                type="radio" id="exampleRadios1" value="Cash" checked>
+                            <label class="form-check-label" for="exampleRadios1">
+                                Cash
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input [(ngModel)]="data.PaymentDetails" name="PaymentDetails2" class="form-check-input"
+                                type="radio" id="exampleRadios2" value="Check">
+                            <label class="form-check-label" for="exampleRadios2">
+                                Check
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input [(ngModel)]="data.PaymentDetails" name="PaymentDetails3" class="form-check-input"
+                                type="radio" id="exampleRadios3" value="Card">
+                            <label class="form-check-label" for="exampleRadios3">
+                                Card
+                            </label>
+                        </div>
+                    </div>
+                    <div class="pt-3"><span>Terms of Service</span><span style="color:red;">*</span>
+                        <div class="form-check pt-2">
+                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                            <label class="form-check-label" for="defaultCheck1">
+                                I agree to the
+                            </label><span style="color:rgb(9, 163, 224);cursor: pointer;"> terms of service</span>
+                        </div>
+                    </div>
+                    <div class="pt-4 d-flex align-items-center justify-content-center">
+                        <button [disabled]="registrationForm.invalid" type="submit"
+                            class="btn btn-secondary px-4 py-2">SEND</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
